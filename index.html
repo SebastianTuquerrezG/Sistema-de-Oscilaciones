@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema dos resortes</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+    <script src="configuracion.js" defer></script>
+    <script src="visual.js" defer></script>
+    <style>
+        #graph {
+            border: 1px solid rgb(255, 255, 255);
+            background-color: white;
+            padding: 1px;
+            margin-top: 3em;
+            margin-left: 1em;
+            width: 45%;
+            height: 60%;
+            position: absolute;
+            left: 0;
+            -webkit-box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.3);
+            box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.3);
+        }
+
+        #Migrafica {
+            width: 100%;
+            height: 100%;
+            margin: 0; /* Eliminar márgenes */
+            padding: 0; /* Eliminar relleno */
+        }
+
+        .sliders-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            padding: 1px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            position: absolute;
+            top: 40%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        .slider-label {
+            font-size: 12px;
+        }
+
+        input {
+            margin-top: -15px;
+        }
+
+        p {
+            font-size: 12px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .sliders-container {
+            width: 150px;
+        }
+
+        button {
+            width: 60px;
+            height: 25px;
+            font-size: 12px;
+            margin-bottom: 5px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
+        }
+    </style>
+</head>
+<body>
+  <div id="graph">
+    <div id="Migrafica"></div>
+</div>
+<div class="sliders-container">
+    <p id="velocidadValue">Velocidad de reproducción: 0.01</p>
+    <input type="range" id="entradaVel" name="entradaVel" min="0.01667" max="0.1" value="0.01667" step="0.01667">
+
+    <p id="masaValue">Masa(Kg): 1</p>
+    <input type="range" id="entradaM" name="entradaM" min="1" max="10" value="1" step="0.1">
+
+    <p id="k1Value">K<sub>1</sub>(N/m): 1</p>
+    <input type="range" id="entradaK1" name="entradaK1" min="1" max="10" value="1" step="0.1">
+
+    <p id="k2Value">K<sub>2</sub>(N/m): 1</p>
+    <input type="range" id="entradaK2" name="entradaK2" min="1" max="10" value="1" step="0.1">
+
+    <p id="X0Value">X<sub>o</sub>(N/m): 0</p>
+    <input type="range" id="entradaX0" name="entradaX0" min="-0.5" max="0.5" value="0" step="0.01">
+
+    <p id="V0Value">V<sub>o</sub>(N/m): 0</p>
+    <input type="range" id="entradaV0" name="entradaV0" min="-0.5" max="0.5" value="0" step="0.01">
+
+    <p id="amortiguamiento">b(N*s/m): 1</p>
+    <input type="range" id="entradaB" name="entradaB" min="0" max="10" value="0" step="0.1">
+
+    <p id="frecuenciaTorque">W<sub>f</sub>(rad/seg): 1</p>
+    <input type="range" id="entradaWf" name="entradaWf" min="1" max="50" value="1" step="0.01">
+
+    <p id="fuerzaExterna">F<sub>o</sub>(N): 0</p>
+    <input type="range" id="entradaFo" name="entradaFo" min="0" max="20" value="0" step="0.01">
+</div>
+</body>
+</html>
