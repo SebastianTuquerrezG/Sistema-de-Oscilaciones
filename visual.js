@@ -122,14 +122,39 @@ function botonesControl() {
 
 function toggleSimulation(){
   paused = !paused; // Toggle the paused state
-
   // Change the button text based on the paused state
   let toggleButton = document.getElementById("toggleButton");
   if (paused) {
-    toggleButton.textContent = "Reanudar";
+    toggleButton.textContent = "Reanudar";    
+    inhabilitarControles();
   } else {
     toggleButton.textContent = "Pausar";
+    habilitarControles();
   }
+}
+
+function inhabilitarControles() {
+  entradaM.attribute("disabled", true);
+  entradaK1.attribute("disabled", true);
+  entradaK2.attribute("disabled", true);
+  entradaVel.attribute("disabled", true);
+  entradaX0.attribute("disabled", true);
+  entradaV0.attribute("disabled", true);
+  entradaB.attribute("disabled", true);
+  entradaWf.attribute("disabled", true);
+  entradaFo.attribute("disabled", true);
+}
+
+function habilitarControles() {
+  entradaM.removeAttribute("disabled");
+  entradaK1.removeAttribute("disabled");
+  entradaK2.removeAttribute("disabled");
+  entradaVel.removeAttribute("disabled");
+  entradaX0.removeAttribute("disabled");
+  entradaV0.removeAttribute("disabled");
+  entradaB.removeAttribute("disabled");
+  entradaWf.removeAttribute("disabled");
+  entradaFo.removeAttribute("disabled");
 }
 
 function sliderEntrada() {
