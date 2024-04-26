@@ -63,11 +63,11 @@ let traceVelocidad = {
 let traceAceleracion = {
   x: ejex,
   y: ejeyA,
-  mode: 'lines',
-  name: 'Aceleracion',
+  mode: "lines",
+  name: "Aceleración",
   line: {
-    color: 'rgb(241, 10, 10)'
-  }
+    color: "rgb(241, 10, 10)",
+  },
 };
 
 // Definir datos
@@ -241,7 +241,7 @@ function obtener() {
   document.getElementById("k2Value").innerText =
     "Constante K\u2082(N/m): " + valorK2;
   document.getElementById("velocidadValue").innerText =
-    "Velocidad de reproduccion: " + timer;
+    "Velocidad de reproducción: " + timer;
   document.getElementById("frecuenciaTorque").innerText =
     "Wf(rad/seg): " + valorWf;
   document.getElementById("fuerzaExterna").innerText = "F\u2080(N): " + valorFo;
@@ -345,7 +345,7 @@ function fSimple() {
       d * W0 * Math.cos(W0 * t) +
       d * Math.cos(W0 * t);
     text(
-      "Funcion estacionaria: xe(t)= " +
+      "Función estacionaria: xe(t)= " +
         d.toFixed(2) +
         "tsen(" +
         W0.toFixed(2) +
@@ -359,7 +359,7 @@ function fSimple() {
     Vt = -c * valorWf * Math.sin(valorWf * t - Math.PI);
     At = -c * pow(valorWf, 2) * Math.cos(valorWf * t - Math.PI);
     text(
-      "Funcion estacionaria: xe(t)= " +
+      "Función estacionaria: xe(t)= " +
         c.toFixed(2) +
         "cos(" +
         valorWf.toFixed(2) +
@@ -374,7 +374,7 @@ function fSimple() {
     At = -c * pow(valorWf, 2) * Math.cos(valorWf * t);
 
     text(
-      "Funcion estacionaria: xe(t)= " +
+      "Función estacionaria: xe(t)= " +
         c.toFixed(2) +
         "cos(" +
         valorWf.toFixed(2) +
@@ -440,7 +440,7 @@ function fAmortiguado() {
   t += timer;
   text("X(t) = " + Xt.toFixed(2) + " m", bordTxtX, bordTxtY);
   text(
-    "Funcion del movimiento: x(t)= " +
+    "Función del movimiento: x(t)= " +
       d.toFixed(2) +
       "cos(" +
       valorWf.toFixed(2) +
@@ -536,7 +536,7 @@ function armonico() {
     ResorH
   );
   text(
-    "Funcion del movimiento: x(t)=" +
+    "Función del movimiento: x(t)=" +
       valorA.toFixed(2) +
       "cos(" +
       W0.toFixed(2) +
@@ -651,7 +651,7 @@ function subamortiguado() {
   text("X(t) = " + Xt.toFixed(2) + " m", bordTxtX, bordTxtY);
   text("τ =   " + T.toFixed(2) + "seg", bordTxtX, bordTxtY + 30);
   text(
-    "Funcion del movimiento: x(t)=" +
+    "Función del movimiento: x(t)=" +
       constante.toFixed(2) +
       "e^(-" +
       Gamma.toFixed(2) +
@@ -715,7 +715,7 @@ function criticamenteamortiguado() {
   t += timer;
   text("X(t) = " + Xt.toFixed(2) + " m", bordTxtX, bordTxtY);
   text(
-    "Funcion del movimiento: x(t)= (" +
+    "Función del movimiento: x(t)= (" +
       Constante1.toFixed(2) +
       formatearNumero(Constante2) +
       "t)" +
@@ -768,7 +768,7 @@ function sobreamortiguado() {
   let Constante2 = (ValorV0 - M1 * valorX0) / (M2 - M1);
   let Constante1 = valorX0 - Constante2;
   text(
-    "Funcion del movimiento: x(t)= " +
+    "Función del movimiento: x(t)= " +
       Constante1.toFixed(2) +
       "e^(" +
       M1.toFixed(2) +
