@@ -35,6 +35,8 @@ let ejeyV = [];
 let ejeyA = [];
 let ejex = [];
 
+let toggleButton;
+let paused = false;
 // Supongamos que tienes tus datos ya llenos en ejey, ejeyV, ejeyA y ejex
 
 // Crear trazas para Plotly
@@ -113,6 +115,21 @@ function botonesControl() {
   stop = createButton("Reiniciar");
   stop.position(Xmax - 490, 70);
   stop.mousePressed(() => window.location.reload());
+
+  toggleButton = document.getElementById('toggleButton');
+  toggleButton.addEventListener('click', toggleSimulation)
+}
+
+function toggleSimulation(){
+  paused = !paused; // Toggle the paused state
+
+  // Change the button text based on the paused state
+  let toggleButton = document.getElementById("toggleButton");
+  if (paused) {
+    toggleButton.textContent = "Reanudar";
+  } else {
+    toggleButton.textContent = "Pausar";
+  }
 }
 
 function sliderEntrada() {
@@ -210,15 +227,17 @@ function obtener() {
 //----------------------------------------------
 
 function draw() {
-  obtener();
-  entorno();
+  if(!paused){    
+    obtener();
+    entorno();
 
-  // condicional que controla cuando se ejecutara el programa
-  if (simular) {
-    movimiento();
-  } else {
-    simular = false;
-    acomodarPosicionInicial();
+    // condicional que controla cuando se ejecutara el programa
+    if (simular) {
+      movimiento();
+    } else {
+      simular = false;
+      acomodarPosicionInicial();
+    }
   }
 }
 
@@ -818,4 +837,3 @@ function agregarDatos(xTiempo, yPosicion, yVelocidad, yAceleracion) {
       y: [[yAceleracion]]
   }, [2]); // Actualizar traza de aceleración
 }
-
